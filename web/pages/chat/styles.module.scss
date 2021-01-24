@@ -1,0 +1,60 @@
+.Messages {
+  background-color: #0e1418;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 47px);
+  .Message {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+    margin-bottom: 8px;
+    span {
+      font-weight: 500;
+      font-size: 12px;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+    p {
+      background-color: #272d31;
+      color: #fff;
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0;
+      border-radius: 4px;
+      max-width: 90%;
+    }
+    &--right {
+      align-items: flex-end;
+      p {
+        background-color: #296061;
+      }
+    }
+    &--alert {
+      align-items: center;
+      font-size: 14px;
+    }
+    @media (min-width: 768px) {
+      p {
+        max-width: 551px;
+      }
+    }
+  }
+}
+.Form {
+  background-color: #1f2428;
+  padding: 8px 16px;
+  input {
+    padding: 8px 16px;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    color: #FFF;
+    outline: 0;;
+    background-color: #34383b;
+    &::placeholder {
+      color: #7b7d7f;
+    }
+  }
+}

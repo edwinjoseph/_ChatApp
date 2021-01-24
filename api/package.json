@@ -1,0 +1,20 @@
+{
+  "name": "chatapp-api",
+  "version": "0.1.0",
+  "description": "E2E chat API",
+  "main": "src/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon ./src/index.js --watch ./src"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "socket.io": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
