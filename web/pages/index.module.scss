@@ -8,6 +8,7 @@
     background-color: #1f2428;
     border-radius: 6px;
     display: flex;
+    flex-direction: column;
     label {
       color: #FFF;
     }
@@ -16,19 +17,31 @@
     }
 
     .Avatar {
-      width: 150px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
       &:before {
         content: "";
         display: block;
         border-radius: 50%;
         width: 126px;
         height: 126px;
-        margin-top: 4px;
         background-color: rgba(0, 0, 0, 0.3);
       }
     }
-    .FormContent {
-      width: calc(100% - 150px)
+    @media (min-width: 768px) {
+      flex-direction: row;
+      .Avatar {
+        width: 150px;
+        justify-content: flex-start;
+        margin-bottom: 0;
+        &:before {
+          margin-top: 4px;
+        }
+      }
+      .FormContent {
+        width: calc(100% - 150px)
+      }
     }
   }
 }

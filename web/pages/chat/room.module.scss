@@ -1,17 +1,9 @@
 .Form {
   position: relative;
   background-color: #1f2428;
-  padding: 8px 16px;
+  padding: 12px 16px;
   input {
-    padding: 8px 16px;
     width: 100%;
-    border: none;
-    border-radius: 15px;
-    color: #FFF;
-    outline: 0;;
-    background-color: #34383b;
-    &::placeholder {
-      color: #7b7d7f;
-    }
+    border-radius: 20px;
   }
 }

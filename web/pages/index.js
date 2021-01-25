@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useSessionStorage } from 'react-use'
 
 import InputField from '../components/shared/atoms/InputField'
+import Button from '../components/shared/atoms/Button'
 import styles from './index.module.scss'
 
 const Home = ({ socket }) => {
@@ -43,7 +44,7 @@ const Home = ({ socket }) => {
                   placeholder="Enter the room name"
                   ref={methods.register()}
                 />
-                <button type="submit">Join room</button>
+                <Button type="submit">Join room</Button>
               </div>
             </form>
           </div>
