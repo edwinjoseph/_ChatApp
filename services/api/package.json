@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./src/index.js --watch ./src"
+    "dev": "nodemon ./src/index.js --watch ./src",
+    "start": "node ./src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

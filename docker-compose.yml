@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  api:
+    build: services/api/
+    ports:
+      - 8080:8080
+    
+  client:
+    build: services/web/
+    volumes:
+      - ./services/web:/web
+      - /web/node_modules
+      - /web/.next
+    depends_on:
+      - api
+    ports:
+      - 3000:3000

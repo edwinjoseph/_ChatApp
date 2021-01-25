@@ -1,4 +1,7 @@
 {
   "private": true,
+  "scripts": {
+    "start": "docker-compose up --build"
+  },
   "workspaces": ["services/api", "services/web"]
 }
