@@ -3,13 +3,11 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { useSessionStorage } from 'react-use'
 
+import InputField from '../components/shared/atoms/InputField'
+import styles from './index.module.scss'
+
 const Home = ({ socket }) => {
-  const methods = useForm({
-    defaultValues: {
-      username: 'user',
-      room: 'room',
-    }
-  })
+  const methods = useForm()
   const router = useRouter()
 
   const [, setUsername ] = useSessionStorage('username')
@@ -26,28 +24,27 @@ const Home = ({ socket }) => {
         <title>Login - ChatApp</title>
       </Head>
       <main>
-        <section id="login">
+        <section id="login" className={styles.Login}>
           <div className="container container--narrow">
             <form onSubmit={methods.handleSubmit(onFormSubmit)}>
-              <div className="field">
-                <label htmlFor="username">Enter your username</label>
-                <input 
+              <div className={styles.Avatar}></div>
+              <div className={styles.FormContent}>
+                <InputField 
                   type="text"
                   name="username"
-                  id="username"
+                  label="Username"
+                  placeholder="Enter your username"
                   ref={methods.register()}
                 />
-              </div>
-              <div className="field">
-                <label htmlFor="room">Enter the room name</label>
-                <input 
+                <InputField 
                   type="text"
                   name="room"
-                  id="room"
+                  label="Room name"
+                  placeholder="Enter the room name"
                   ref={methods.register()}
                 />
+                <button type="submit">Join room</button>
               </div>
-              <button type="submit">Join room</button>
             </form>
           </div>
         </section>
