@@ -3,7 +3,7 @@ FROM node:alpine
 RUN mkdir -p /api
 WORKDIR /api
 
-COPY . /api
+COPY services/api /api
 
 RUN yarn
 

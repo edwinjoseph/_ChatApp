@@ -3,7 +3,7 @@ FROM node:alpine
 RUN mkdir -p /web
 WORKDIR /web
 
-COPY . /web
+COPY services/web /web
 
 RUN yarn
 RUN yarn build
