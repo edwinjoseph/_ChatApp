@@ -1,7 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "start": "docker-compose up --build"
+    "dev": "concurrently \"cd services/api && yarn dev\" \"cd services/web && yarn dev\"",
+    "start": "docker-compose up"
   },
-  "workspaces": ["services/api", "services/web"]
+  "workspaces": [
+    "services/api",
+    "services/web"
+  ],
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
 }

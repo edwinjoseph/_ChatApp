@@ -2,12 +2,12 @@ version: "3.3"
 
 services:
   api:
-    build: services/api/
+    image: index.docker.io/edwinjoseph/example-chatapp_api:latest
     ports:
-      - 8080:8080
+      - 5000:5000
     
   client:
-    build: services/web/
+    image: index.docker.io/edwinjoseph/example-chatapp_web:latest
     volumes:
       - ./services/web:/web
       - /web/node_modules
@@ -15,4 +15,4 @@ services:
     depends_on:
       - api
     ports:
-      - 3000:3000
+      - 8080:8080

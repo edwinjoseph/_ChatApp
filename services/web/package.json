@@ -4,9 +4,9 @@
   "description": "E2E chat web app ",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8080",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 8080"
   },
   "dependencies": {
     "classnames": "^2.2.6",

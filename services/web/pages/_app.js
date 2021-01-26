@@ -2,7 +2,7 @@ import { useState } from 'react'
 import io from 'socket.io-client'
 import '../styles/globals.scss'
 
-const chatUrl = 'http://localhost:8080'
+const chatUrl = 'http://localhost:5000'
 
 const socket = io(chatUrl)
 
