@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSessionStorage } from 'react-use'
 
@@ -8,8 +9,12 @@ import Button from '../components/shared/atoms/Button'
 import styles from './index.module.scss'
 
 const Home = ({ socket }) => {
-  const methods = useForm()
   const router = useRouter()
+  const methods = useForm({
+    defaultValues: {
+      room: router.query.room,
+    }
+  })
 
   const [, setUsername ] = useSessionStorage('username')
 
@@ -18,6 +23,12 @@ const Home = ({ socket }) => {
     socket.emit("join", { username, room })
     router.push(`/chat/${room}`)
   }
+  
+  useEffect(() => {
+    if (router.query.room) {
+      methods.setValue('room', router.query.room, { shouldDirty: true })
+    }
+  }, [ router.query ]) 
 
   return (
     <>

@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useSessionStorage, useUnmount } from 'react-use'
+import { useSessionStorage } from 'react-use'
 import cx from 'classnames'
 import styles from './styles.module.scss'
 
 const Messages = ({ socket, formHeight }) => {
-  const { query, ...router } = useRouter()
+  const router = useRouter()
+  const query = router.query
   const [ messages, setMessages ] = useState([])
   const [ username, setUsername ] = useSessionStorage('username')
 
@@ -28,14 +29,14 @@ const Messages = ({ socket, formHeight }) => {
   }, [socket])
 
   useEffect(() => {
-    if (!username) {
-      router.push('/')
+    if (!username && query.room) {
+      router.push({ pathname: '/', query: { room: query.room } })
     }
 
     window.onbeforeunload = () => {
       setUsername(null);
     }
-  }, [])
+  }, [query])
 
   return (
     <div className={styles.Messages} style={{ '--form-height': `${formHeight}px` }}>
